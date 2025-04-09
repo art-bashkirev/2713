@@ -1,0 +1,5 @@
+import '@fontsource/monaspace-argon'
+import '@fontsource/monaspace-neon'
+import '@fontsource/monaspace-xenon'
+import '@fontsource/monaspace-krypton'
+import '@fontsource/monaspace-radon'

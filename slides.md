@@ -2,15 +2,11 @@
 author: Artem Bashkirev
 keywords: 27, ЕГЭ Информатика
 aspectRatio: 4/3
-# canvasWidth: 6000
 addons:
   - slidev-addon-python-runner
   - slidev-addon-sync
 python:
   loadPackagesFromImports: true
-  prelude: |
-    GREETING_FROM_PRELUDE = "Hello, Slidev!"
-
 fonts:
   sans: Ubuntu Sans Mono
   serif: Monaspace Xenon
@@ -22,11 +18,12 @@ mdc: true
 layout: full
 ---
 
-<!-- THIS IS FRONTMATTER -->
+<!-- THIS IS THE COVER -->
 
 <style>
 .huge-number {
-  font: 40rem "Monaspace Neon", sans-serif;
+  font-family: "Monaspace Neon", mono;
+  font-size: 40rem;
   font-weight: 600;
   margin: 0;
   line-height: 1;
@@ -36,13 +33,8 @@ layout: full
   background-clip: text;
   color: transparent;
   animation: gradient 15s ease infinite, pulse 5s ease infinite;
-  position: relative; /* Changed to relative */
   text-shadow: 0 0 40px rgba(255, 8, 97, 0.7);
   filter: drop-shadow(0 0 20px rgba(255, 72, 0, 0.5));
-  display: flex; /* Added for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100%; /* Full height of the container */
   z-index: 1; /* Ensure number is above particles */
 }
 
@@ -88,22 +80,30 @@ layout: full
   50% { transform: scale(1.5) translateY(-100px); opacity: 0.5; }
   100% { transform: scale(0) translateY(-200px); opacity: 0; }
 }
+
+/* New styles for centering */
+.center-container {
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full height of the viewport */
+}
 </style>
 
 <div class="void-background">
   <div class="glow-particles">
-  <!-- <div class="w-96 h-96 bg-gradient-to-r from-cyan-500/30 to-blue-600/30 top-1/4 left-1/4 blur-3xl"></div>
-  <div class="w-64 h-64 bg-gradient-to-r from-red-500/40 to-purple-600/40 top-1/3 right-1/4 blur-2xl"></div> -->
-  <div class="w-80 h-80 bg-gradient-to-r from-green-500/30 to-yellow-600/30 top-1/2 left-1/4 blur-2xl"></div>
-  <div class="w-72 h-72 bg-gradient-to-r from-blue-500/40 to-pink-600/40 top-1/4 right-1/4 blur-3xl"></div>
-  <div class="w-56 h-56 bg-gradient-to-r from-purple-500/30 to-orange-600/30 top-3/4 left-1/2 blur-2xl"></div>
-  <div class="w-48 h-48 bg-gradient-to-r from-pink-500/40 to-cyan-600 /40 top-1/2 right-1/3 blur-3xl"></div>
-  <div class="w-40 h-40 bg-gradient-to-r from-yellow-500/30 to-red-600/30 top-1/3 left-1/3 blur-2xl"></div>
-  <div class="w-60 h-60 bg-gradient-to-r from-teal-500/40 to-indigo-600/40 top-1/4 left-3/4 blur-3xl"></div>
-  <div class="w-72 h-72 bg-gradient-to-r from-orange-500/30 to-red-600/30 top-0 left-0 blur-3xl"></div>
-</div>
+    <div class="w-80 h-80 bg-gradient-to-r from-green-500/30 to-yellow-600/30 top-1/2 left-1/4 blur-2xl"></div>
+    <div class="w-72 h-72 bg-gradient-to-r from-blue-500/40 to-pink-600/40 top-1/4 right-1/4 blur-3xl"></div>
+    <div class="w-56 h-56 bg-gradient-to-r from-purple-500/30 to-orange-600/30 top-3/4 left-1/2 blur-2xl"></div>
+    <div class="w-48 h-48 bg-gradient-to-r from-pink-500/40 to-cyan-600 /40 top-1/2 right-1/3 blur-3xl"></div>
+    <div class="w-40 h-40 bg-gradient-to-r from-yellow-500/30 to-red-600/30 top-1/3 left-1/3 blur-2xl"></div>
+    <div class="w-60 h-60 bg-gradient-to-r from-teal-500/40 to-indigo-600/40 top-1/4 left-3/4 blur-3xl"></div>
+    <div class="w-72 h-72 bg-gradient-to-r from-orange-500/30 to-red-600/30 top-0 left-0 blur-3xl"></div>
+  </div>
 
-  <h1 class="huge-number">27</h1>
+  <div class="center-container">
+    <h1 class="huge-number">27</h1>
+  </div>
 </div>
 
 <!--
