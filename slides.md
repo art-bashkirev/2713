@@ -25,6 +25,7 @@ layout: full
   font: 40rem "Monaspace Neon", sans-serif;
   font-weight: 600;
   margin: 0;
+  margin-top: 1rem;
   line-height: 1;
   background: linear-gradient(45deg, #ff0861, #ff2a63, #f43f47, #ff6a00, #ffd300);
   background-size: 300% 300%; /* Adjusted background size for better visibility */
