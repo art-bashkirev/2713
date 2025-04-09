@@ -36,6 +36,10 @@ layout: full
   text-shadow: 0 0 40px rgba(255, 8, 97, 0.7);
   filter: drop-shadow(0 0 20px rgba(255, 72, 0, 0.5));
   z-index: 1; /* Ensure number is above particles */
+  position: absolute; /* Positioning for centering */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust position to center */
 }
 
 @keyframes gradient {
@@ -80,15 +84,6 @@ layout: full
   50% { transform: scale(1.5) translateY(-100px); opacity: 0.5; }
   100% { transform: scale(0) translateY(-200px); opacity: 0; }
 }
-
-/* New styles for centering */
-.center-container {
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100vh; /* Full height of the viewport */
-  position: relative; /* Ensure it takes the full height */
-}
 </style>
 
 <div class="void-background">
@@ -102,9 +97,7 @@ layout: full
     <div class="w-72 h-72 bg-gradient-to-r from-orange-500/30 to-red-600/30 top-0 left-0 blur-3xl"></div>
   </div>
 
-  <div class="center-container">
-    <h1 class="huge-number">27</h1>
-  </div>
+  <h1 class="huge-number">27</h1>
 </div>
 
 <!--
