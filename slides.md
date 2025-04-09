@@ -13,9 +13,8 @@ python:
 
 fonts:
   sans: Ubuntu Sans Mono
-  serif: Monaspace Xenon Var,
-  mono: Monaspace Krypton Var
-  local: Monaspace Xenon Var, Monaspace Krypton Var, Monaspace Argon Var
+  serif: Monaspace Xenon
+  mono: Monaspace Krypton
 drawings:
   syncAll: false
 
@@ -27,7 +26,7 @@ layout: full
 
 <style>
 .huge-number {
-  font: 40rem "Monaspace Neon Var", sans-serif; /* Reduced font size */
+  font: 40rem "Monaspace Neon", sans-serif;
   font-weight: 600;
   margin: 0;
   line-height: 1;

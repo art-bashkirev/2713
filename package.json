@@ -9,6 +9,11 @@
     "dev-rem": "slidev --remote --tunnel"
   },
   "dependencies": {
+    "@fontsource/monaspace-argon": "^5.2.5",
+    "@fontsource/monaspace-krypton": "^5.2.5",
+    "@fontsource/monaspace-neon": "^5.2.5",
+    "@fontsource/monaspace-radon": "^5.2.5",
+    "@fontsource/monaspace-xenon": "^5.2.5",
     "@iconify-json/carbon": "^1.2.8",
     "@iconify-json/mdi": "^1.2.3",
     "@slidev/cli": "^51.5.0",
