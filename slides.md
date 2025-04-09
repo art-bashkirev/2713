@@ -7,12 +7,14 @@ addons:
   - slidev-addon-sync
 python:
   loadPackagesFromImports: true
+  fsInitArchive: 'https://raw.githubusercontent.com/art-bashkirev/2713-pub/main/problems.zip'
 fonts:
   sans: Ubuntu Sans Mono
   serif: Monaspace Xenon
   mono: Monaspace Krypton
 drawings:
   syncAll: false
+  persist: true
 
 mdc: true
 layout: full
@@ -99,10 +101,8 @@ layout: full
   <div class="w-60 h-60 bg-gradient-to-r from-teal-500/40 to-indigo-600/40 top-1/4 left-3/4 blur-3xl"></div>
   <div class="w-72 h-72 bg-gradient-to-r from-orange-500/30 to-red-600/30 top-0 left-0 blur-3xl"></div>
 </div>
-
   <h1 class="huge-number">27</h1>
 </div>
-
 
 <!--
 THIS IS THE COVER
