@@ -118,5 +118,10 @@ src: ./pages/overview.md
 src: ./pages/lambda-warmup.md
 ---
 ---
-src: ./pages/problem-analysis.md
+# Демо-2025
+src: ./pages/problem7581.md 
+---
+---
+# ЕГКР-2024
+src: ./pages/problem7944.md 
 ---

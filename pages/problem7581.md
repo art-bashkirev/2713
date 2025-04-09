@@ -27,10 +27,11 @@ layout: two-cols-header
 
 ::left::
 
+Файл А
 
 ::right::
 
-
+Файл Б
 
 ---
 layout: codesplit
