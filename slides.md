@@ -87,6 +87,7 @@ layout: full
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   height: 100vh; /* Full height of the viewport */
+  position: relative; /* Ensure it takes the full height */
 }
 </style>
 
