@@ -138,7 +138,7 @@ layout: codesplit
 
 # Разбор № 7581
 
-Демо-2025 / $\text{\tiny{derived from plugarinf}}$
+Демо-2025
 
 ::left::
 
@@ -186,7 +186,7 @@ layout: codesplit
 
 # Разбор № 7581
 
-Демо-2025 / $\text{\tiny{derived from plugarinf}}$
+Демо-2025
 
 ::left::
 
@@ -255,7 +255,7 @@ layout: codesplit
 
 # Разбор № 7581
 
-Демо-2025 / $\text{\tiny{derived from plugarinf}}$
+Демо-2025
 
 ::left::
 
@@ -703,7 +703,7 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]
-print((sum(xs) / 2) * 10_000, (sum(ys) / 2) * 10_000)
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 ````
 
@@ -752,7 +752,7 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]
-print((sum(xs) / 2) * 10_000, (sum(ys) / 2) * 10_000)
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
 <!--
@@ -805,7 +805,7 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]
-print((sum(xs) / 2) * 10_000, (sum(ys) / 2) * 10_000)
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
 ```python
@@ -838,7 +838,7 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]
-print((sum(xs) / 2) * 10_000, (sum(ys) / 2) * 10_000)
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
 ```python
@@ -871,7 +871,7 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]
-print((sum(xs) / 2) * 10_000, (sum(ys) / 2) * 10_000)
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
 ```python
@@ -904,7 +904,7 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]
-print((sum(xs) / 2) * 10_000, (sum(ys) / 2) * 10_000)
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
 ```python
@@ -934,7 +934,7 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]
-print((sum(xs) / 2) * 10_000, (sum(ys) / 2) * 10_000)
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
 ```python
@@ -960,7 +960,7 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]
-print((sum(xs) / 2) * 10_000, (sum(ys) / 2) * 10_000)
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
 ```python
@@ -990,7 +990,7 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]
-print((sum(xs) / 2) * 10_000, (sum(ys) / 2) * 10_000)
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
 ```python
@@ -1012,7 +1012,7 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]
-print((sum(xs) / 2) * 10_000, (sum(ys) / 2) * 10_000)
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
 ```python
@@ -1033,7 +1033,7 @@ def centroid(cluster):
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]
-print((sum(xs) / 2) * 10_000, (sum(ys) / 2) * 10_000)
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 ````
 
@@ -1055,7 +1055,7 @@ print((sum(xs) / 2) * 10_000, (sum(ys) / 2) * 10_000)
 
 `clusters` Здесь мы проходимся по точкам и смотрим на ту прямую. Предлагаю просто два раза пройтись и использовать  [click] генератор.
 
-Смертельный номер. Избавляемся от индексирования, используем генератор сразу в sum, используем объект точки вместо координат `x_c, y_c` [click]
+Смертельный номер. Мы здесь `s in centroid` считаем сумму, но есть же `sum`, используем объект точки вместо координат `x_c, y_c` [click]
 
 Переместим вычисления вверх и просто пройдемся по дистанциям,
 `min_point` берем первую попавшуюся
@@ -1068,3 +1068,117 @@ print((sum(xs) / 2) * 10_000, (sum(ys) / 2) * 10_000)
 Ну и переменные [click]
 
 -->
+
+---
+layout: codesplit
+---
+
+# Разбор № 7581
+
+Демо-2025
+
+::left::
+
+<PlotlyFigure csvUrl="https://raw.githubusercontent.com/art-bashkirev/2713-pub/refs/heads/main/data-csv/7581_B.csv" xColumn="0" yColumn="1" />
+
+<style>
+.plotly-figure {
+  margin: 0;
+  align-contents: top;
+  width: 400px;
+  height: auto;
+}
+</style>
+
+::right::
+
+````md magic-move
+```python
+# Расстояние
+from math import dist as d
+
+points = [list(map(float, line.replace(",", ".").split())) 
+          for line in open("7581_B.txt")]
+
+clusters = [
+  [p for p in points if ],
+  [p for p in points if ],
+  [p for p in points if ]
+]
+
+def centroid(cluster):
+  min_point = min(cluster, key=lambda p: sum(d(p, o) for o in cluster))
+  return min_point
+
+centroids = [centroid(clstr) for clstr in clusters]
+xs, ys = [x for x, y in centroids], [y for x, y in centroids]
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
+```
+
+```python
+# Расстояние
+from math import dist as d
+
+points = [list(map(float, line.replace(",", ".").split())) 
+          for line in open("7581_B.txt")]
+
+clusters = [
+  [p for p in points if p[0] + p[1] < 6],
+  [p for p in points if p[0] + p[1] > 6 and p[1] - p[0] * (1/3) < 6],
+  [p for p in points if p[1] - p[0] * (1/3) > 6]
+]
+
+def centroid(cluster):
+  min_point = min(cluster, key=lambda p: sum(d(p, o) for o in cluster))
+  return min_point
+
+centroids = [centroid(clstr) for clstr in clusters]
+xs, ys = [x for x, y in centroids], [y for x, y in centroids]
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
+```
+````
+
+<!--
+Для файла B осталось только определить линейные функции.
+-->
+
+---
+layout: codesplit
+---
+
+# Разбор № 7581
+
+Демо-2025
+
+
+::left::
+
+Ответ для файла B.
+
+::right::
+
+```python
+# Расстояние
+from math import dist as d
+
+points = [list(map(float, line.replace(",", ".").split())) 
+          for line in open("7581_B.txt")]
+
+clusters = [
+  [p for p in points if p[0] + p[1] < 6],
+  [p for p in points if p[0] + p[1] > 6 and p[1] - p[0] * (1/3) < 6],
+  [p for p in points if p[1] - p[0] * (1/3) > 6]
+]
+
+def centroid(cluster):
+  min_point = min(cluster, key=lambda p: sum(d(p, o) for o in cluster))
+  return min_point
+
+centroids = [centroid(clstr) for clstr in clusters]
+xs, ys = [x for x, y in centroids], [y for x, y in centroids]
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
+```
+
+```md
+37522.944615707165 51277.95880214987
+```
