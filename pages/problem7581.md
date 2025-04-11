@@ -519,6 +519,12 @@ centroids = [centroid(clstr) for clstr in clusters]
 ```
 ````
 
+<!--
+[click]
+
+Вычислим центроиды
+-->
+
 ---
 layout: codesplit
 ---

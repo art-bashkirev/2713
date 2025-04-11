@@ -3,18 +3,14 @@ author: Artem Bashkirev
 keywords: 27, ЕГЭ Информатика
 aspectRatio: 4/3
 addons:
-  - slidev-addon-python-runner
   - slidev-addon-sync
-python:
-  loadPackagesFromImports: true
-  fsInitArchive: 'https://raw.githubusercontent.com/art-bashkirev/2713-pub/main/problems.zip'
 fonts:
   sans: Ubuntu Sans Mono
   serif: Monaspace Xenon
   mono: Monaspace Krypton
 drawings:
   syncAll: false
-  persist: true
+  # persist: true
 
 mdc: true
 layout: full
