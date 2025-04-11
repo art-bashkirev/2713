@@ -112,7 +112,7 @@ layout: codesplit
 
 ::left::
 
-Даны два входных файла (A и Б).
+Даны два входных файла (A и Б). В каждой строке записана информация о расположении на карте одной звезды: сначала координата $x$, затем координата $y$.
 
 ::right::
 
@@ -179,6 +179,10 @@ clusters = [[], []]
 for point in points:
 ```
 ````
+
+<!--
+Данные позволяют сгруппировать отношение звезды к кластеру вручную, поэтому создадим два кластера [click] и пробежимся по точкам. [click] Посмотрим на данные (Как будем группировать).
+-->
 
 ---
 layout: codesplit
@@ -249,6 +253,9 @@ for point in points:
 ```
 ````
 
+<!--
+Видно, что простой прямой здесь хватит. Напишем линейную функцию. [click]
+-->
 ---
 layout: codesplit
 ---
@@ -522,53 +529,6 @@ layout: codesplit
 
 ::left::
 
-Найденные центроиды
-
-::right::
-
-```python {monaco-run}
-# Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
-  return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
-
-points = [list(map(float, line.replace(",", ".").split())) 
-          for line in open("7581_A.txt")]
-
-clusters = [[], []]
-
-for point in points:
-  if point[1] < point[0] * (-1) + 4:
-    clusters[0].append(point)
-  else:
-    clusters[1].append(point)
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
-  x_c, y_c, m = None, None, 10 ** 9
-  for i in range(len(cluster)):
-    s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
-    i_point = cluster[i]
-    for j in range(len(cluster)):
-      B = cluster[j]
-      s += d(i_point, B)
-    if s < m:
-      m = s
-      x_c, y_c = i_point[0], i_point[1]
-  return x_c, y_c
-
-centroids = [centroid(clstr) for clstr in clusters]
-print(centroids)
-```
-
----
-layout: codesplit
----
-
-# Разбор № 7581
-
-Демо-2025
-
-::left::
-
 В ответе запишите четыре числа: в первой строке сначала целую часть произведения $P_x×10 000$, затем целую часть произведения $P_y×10 000$ для файла А, во второй строке – аналогичные данные для файла Б.
 
 ::right::
@@ -721,7 +681,7 @@ layout: codesplit
 
 ::right::
 
-```python {monaco-run}
+```python
 # Расстояние
 def d(A: tuple[float, float], B: tuple[float, float]) -> float:
   return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
@@ -753,6 +713,10 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]
 print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
+```
+
+```md
+
 ```
 
 <!--
