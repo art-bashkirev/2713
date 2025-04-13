@@ -108,17 +108,3 @@ layout: full
 THIS IS THE COVER
 -->
 
----
-src: ./pages/overview.md
----
----
-src: ./pages/lambda-warmup.md
----
----
-# Демо-2025
-src: ./pages/problem7581.md 
----
----
-# ЕГКР-2024
-src: ./pages/problem7944.md 
----
