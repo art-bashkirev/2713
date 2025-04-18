@@ -1,7 +1,7 @@
 ---
 author: Artem Bashkirev
 keywords: 27, ЕГЭ Информатика
-aspectRatio: 4/3
+aspectRatio: 16/9
 addons:
   - slidev-addon-sync
 fonts:
