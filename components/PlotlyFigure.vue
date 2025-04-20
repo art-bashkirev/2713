@@ -1,9 +1,9 @@
 <!-- PlotlyFigure.vue -->
 <template>
-    <div ref="plotlyContainer" class="plotly-figure"></div>
-  </template>
+  <div ref="plotlyContainer" class="plotly-figure"></div>
+</template>
   
-  <script setup lang="ts">
+<script setup lang="ts">
   import { ref, onMounted } from 'vue';
   import Plotly from 'plotly.js-dist-min';
   import Papa from 'papaparse';
@@ -60,8 +60,9 @@
   
     const layout = {
       title: 'CSV Data Plot',
-      xaxis: { title: props.xColumn },
-      yaxis: { title: props.yColumn },
+      xaxis: { title: "x"},
+      yaxis: { title: "y"},
+      margin: {t: 20, b: 20, r: 20, l: 20},
     };
   
     Plotly.newPlot(plotlyContainer.value, plotData, layout, {displaylogo: false, staticPlot: true});
@@ -76,11 +77,11 @@
       console.error('Error fetching or parsing CSV:', error);
     }
   });
-  </script>
+</script>
   
-  <style scoped>
-  .plotly-figure {
-    width: 450px;
-    height: 500px;
-  }
-  </style>
+<style scoped>
+.plotly-figure {
+  width: 400px;
+  height: 300px;
+}
+</style>

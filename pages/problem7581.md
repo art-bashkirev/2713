@@ -9,8 +9,7 @@ layout: full
 Учёный решил провести кластеризацию некоторого множества звёзд по их расположению на карте звёздного неба. Кластер звёзд – это набор звёзд (точек) на графике. Каждая звезда обязательно принадлежит только одному из кластеров.
 
 <span v-mark="{ at: 1, color: 'red', type: 'underline' }">Центроид – это одна из звёзд</span>
- на графике, сумма расстояний от которой до всех остальных звёзд кластера минимальна. Расстояние между двумя точками $A(x1, y1)$ и $B(x2, y2)$ вычисляется по формуле:
-$d(A, B) = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$
+ на графике, сумма расстояний от которой до всех остальных звёзд кластера минимальна. Расстояние между двумя точками $A(x1, y1)$ и $B(x2, y2)$ вычисляется по формуле: $d(A, B) = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$
 
 <span v-mark="{ at: 2, color: 'red', type: 'underline' }">Даны два входных файла (A и Б).</span> В каждой строке записана информация о расположении на карте одной звезды: сначала координата $x$, затем координата $y$. В файле A хранятся данные о звёздах двух кластеров. Известно, что количество звёзд не превышает $1000$. В файле Б хранятся данные о звёздах трёх кластеров. Известно, что количество звёзд не превышает $10 000$. Структура хранения информации о звездах в файле Б аналогична файлу А.
 
@@ -29,7 +28,7 @@ $d(A, B) = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$
 -->
 
 ---
-layout: two-cols-header
+layout: figuresplit
 ---
 
 # Разбор № 7581
@@ -76,27 +75,27 @@ $d(A, B) = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$
 ::right::
 
 ````md magic-move
-```python
+```python  {*}{maxHeight:'100px'}
 # -*- coding: utf-8 -*-
 ```
 
-```python
+```python 
 # Расстояние
 ```
 
-```python
+```python 
 # Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
+def d(A: list[float, float], B: list[float, float]) -> float:
   return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
 ```
 
-<!-- ```python
+<!-- ```python 
 # Расстояние
 def d(A, B):
   return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
 ```
 
-```python
+```python 
 # Расстояние
 d = lambda A, B: ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
 ``` -->
@@ -117,14 +116,14 @@ layout: codesplit
 ::right::
 
 ````md magic-move
-```python
+```python 
 # Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
+def d(A: list[float, float], B: list[float, float]) -> float:
   return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
 ```
-```python
+```python 
 # Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
+def d(A: list[float, float], B: list[float, float]) -> float:
   return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
 
 points = [list(map(float, line.replace(",", ".").split())) 
@@ -145,19 +144,20 @@ layout: codesplit
 Группировка на кластеры и перебор
 
 ::right::
+
 ````md magic-move
-```python
+```python 
 # Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
+def d(A: list[float, float], B: list[float, float]) -> float:
   return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
 
 points = [list(map(float, line.replace(",", ".").split())) 
           for line in open("7581_A.txt")]
 ```
 
-```python
+```python 
 # Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
+def d(A: list[float, float], B: list[float, float]) -> float:
   return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
 
 points = [list(map(float, line.replace(",", ".").split())) 
@@ -166,9 +166,9 @@ points = [list(map(float, line.replace(",", ".").split()))
 clusters = [[], []]
 ```
 
-```python
+```python 
 # Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
+def d(A: list[float, float], B: list[float, float]) -> float:
   return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
 
 points = [list(map(float, line.replace(",", ".").split())) 
@@ -199,7 +199,7 @@ layout: codesplit
 .plotly-figure {
   margin: 0;
   align-contents: top;
-  width: 400px;
+  width: 350px;
   height: auto;
 }
 </style>
@@ -207,9 +207,9 @@ layout: codesplit
 ::right::
 
 ````md magic-move
-```python
+```python 
 # Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
+def d(A: list[float, float], B: list[float, float]) -> float:
   return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
 
 points = [list(map(float, line.replace(",", ".").split())) 
@@ -220,9 +220,9 @@ clusters = [[], []]
 for point in points:
 ```
 
-```python
+```python 
 # Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
+def d(A: list[float, float], B: list[float, float]) -> float:
   return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
 
 points = [list(map(float, line.replace(",", ".").split())) 
@@ -231,13 +231,13 @@ points = [list(map(float, line.replace(",", ".").split()))
 clusters = [[], []]
 
 for point in points:
-  if point[1] < point[0] * (-1) + 4:
+  if point[1] < point[0] * (-0.5) + 3:
     clusters[0].append(point)
 ```
 
-```python
+```python 
 # Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
+def d(A: list[float, float], B: list[float, float]) -> float:
   return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
 
 points = [list(map(float, line.replace(",", ".").split())) 
@@ -246,7 +246,7 @@ points = [list(map(float, line.replace(",", ".").split()))
 clusters = [[], []]
 
 for point in points:
-  if point[1] < point[0] * (-1) + 4:
+  if point[1] < point[0] * (-0.5) + 3:
     clusters[0].append(point)
   else:
     clusters[1].append(point)
@@ -254,7 +254,10 @@ for point in points:
 ````
 
 <!--
-Видно, что простой прямой здесь хватит. Напишем линейную функцию. [click]
+Видно, что простой прямой здесь хватит. Напишем линейную функцию. Точки есть `(-2;4)`  и `(0;3)`. Получается прямая `y = -0.5x + 3`  Если точка ниже, то к одному кластеру, [click] если выше - к другому [click]
+
+Начнем работать над логикой.
+
 -->
 ---
 layout: codesplit
@@ -266,14 +269,14 @@ layout: codesplit
 
 ::left::
 
-Группировка на кластеры и перебор
+Центроид – это одна из звёзд на графике, сумма расстояний от которой до всех остальных звёзд кластера минимальна.
 
 ::right::
 
 ````md magic-move
-```python
+```python 
 # Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
+def d(A: list[float, float], B: list[float, float]) -> float:
   return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
 
 points = [list(map(float, line.replace(",", ".").split())) 
@@ -282,96 +285,44 @@ points = [list(map(float, line.replace(",", ".").split()))
 clusters = [[], []]
 
 for point in points:
-  if point[1] < point[0] * (-1) + 4:
+  if point[1] < point[0] * (-0.5) + 3:
     clusters[0].append(point)
   else:
     clusters[1].append(point)
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
 ```
 
 ```python
-# Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
-  return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
+clusters = [[...], [...]]
 
-points = [list(map(float, line.replace(",", ".").split())) 
-          for line in open("7581_A.txt")]
+```
 
-clusters = [[], []]
+```python 
+clusters = [[...], [...]]
 
-for point in points:
-  if point[1] < point[0] * (-1) + 4:
-    clusters[0].append(point)
-  else:
-    clusters[1].append(point)
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
+```
 
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
+```python 
+clusters = [[...], [...]]
+
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   x_c, y_c, m = None, None, 10 ** 9
 ```
 
-```python
-# Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
-  return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
+```python 
+clusters = [[...], [...]]
 
-points = [list(map(float, line.replace(",", ".").split())) 
-          for line in open("7581_A.txt")]
-
-clusters = [[], []]
-
-for point in points:
-  if point[1] < point[0] * (-1) + 4:
-    clusters[0].append(point)
-  else:
-    clusters[1].append(point)
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
-  x_c, y_c, m = None, None, 10 ** 9
-  for i in range(len(cluster)):
-
-```
-
-```python
-# Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
-  return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
-
-points = [list(map(float, line.replace(",", ".").split())) 
-          for line in open("7581_A.txt")]
-
-clusters = [[], []]
-
-for point in points:
-  if point[1] < point[0] * (-1) + 4:
-    clusters[0].append(point)
-  else:
-    clusters[1].append(point)
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   x_c, y_c, m = None, None, 10 ** 9
   for i in range(len(cluster)):
     s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
     i_point = cluster[i]
 ```
 
-```python
-# Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
-  return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
+```python 
+clusters = [[...], [...]]
 
-points = [list(map(float, line.replace(",", ".").split())) 
-          for line in open("7581_A.txt")]
-
-clusters = [[], []]
-
-for point in points:
-  if point[1] < point[0] * (-1) + 4:
-    clusters[0].append(point)
-  else:
-    clusters[1].append(point)
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   x_c, y_c, m = None, None, 10 ** 9
   for i in range(len(cluster)):
     s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
@@ -381,23 +332,10 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
       s += d(i_point, B)
 ```
 
-```python
-# Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
-  return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
+```python 
+clusters = [[...], [...]]
 
-points = [list(map(float, line.replace(",", ".").split())) 
-          for line in open("7581_A.txt")]
-
-clusters = [[], []]
-
-for point in points:
-  if point[1] < point[0] * (-1) + 4:
-    clusters[0].append(point)
-  else:
-    clusters[1].append(point)
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   x_c, y_c, m = None, None, 10 ** 9
   for i in range(len(cluster)):
     s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
@@ -410,23 +348,10 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
       x_c, y_c = i_point[0], i_point[1]
 ```
 
-```python
-# Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
-  return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
+```python 
+clusters = [[...], [...]]
 
-points = [list(map(float, line.replace(",", ".").split())) 
-          for line in open("7581_A.txt")]
-
-clusters = [[], []]
-
-for point in points:
-  if point[1] < point[0] * (-1) + 4:
-    clusters[0].append(point)
-  else:
-    clusters[1].append(point)
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   x_c, y_c, m = None, None, 10 ** 9
   for i in range(len(cluster)):
     s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
@@ -437,9 +362,15 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
     if s < m:
       m = s
       x_c, y_c = i_point[0], i_point[1]
-  return x_c, y_c
+  return [x_c, y_c]
 ```
 ````
+
+<!--
+Код немного не влезает... [click] Создадим функцию `centroid`, она получает список точек кластера, и возвращает одну из точек, сумма расстояний до которой до других звезд минимальна [click] Будем хранить координаты такой точки, m - мин. найденное расстояние. [click] Начнем считать [click] Берем i-тую точку и сравниваем с j-той. [click] Затем смотрим на полученную сумму. [click] Если меньше текущей минимальной, мы нашли 'лучший' центроид. Вернем эту точку[click]
+
+Далее в программе
+-->
 
 ---
 layout: codesplit
@@ -456,23 +387,10 @@ layout: codesplit
 ::right::
 
 ````md magic-move
-```python
-# Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
-  return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
+```python 
+clusters = [[...], [...]]
 
-points = [list(map(float, line.replace(",", ".").split())) 
-          for line in open("7581_A.txt")]
-
-clusters = [[], []]
-
-for point in points:
-  if point[1] < point[0] * (-1) + 4:
-    clusters[0].append(point)
-  else:
-    clusters[1].append(point)
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   x_c, y_c, m = None, None, 10 ** 9
   for i in range(len(cluster)):
     s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
@@ -483,26 +401,13 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
     if s < m:
       m = s
       x_c, y_c = i_point[0], i_point[1]
-  return x_c, y_c
+  return [x_c, y_c]
 ```
 
-```python
-# Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
-  return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
+```python 
+clusters = [[...], [...]]
 
-points = [list(map(float, line.replace(",", ".").split())) 
-          for line in open("7581_A.txt")]
-
-clusters = [[], []]
-
-for point in points:
-  if point[1] < point[0] * (-1) + 4:
-    clusters[0].append(point)
-  else:
-    clusters[1].append(point)
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   x_c, y_c, m = None, None, 10 ** 9
   for i in range(len(cluster)):
     s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
@@ -513,16 +418,14 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
     if s < m:
       m = s
       x_c, y_c = i_point[0], i_point[1]
-  return x_c, y_c
+  return [x_c, y_c]
 
 centroids = [centroid(clstr) for clstr in clusters]
 ```
 ````
 
 <!--
-[click]
-
-Вычислим центроиды
+Вычислим центроиды. [click] Получим две точки.
 -->
 
 ---
@@ -540,23 +443,10 @@ layout: codesplit
 ::right::
 
 ````md magic-move
-```python
-# Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
-  return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
+```python 
+clusters = [[...], [...]]
 
-points = [list(map(float, line.replace(",", ".").split())) 
-          for line in open("7581_A.txt")]
-
-clusters = [[], []]
-
-for point in points:
-  if point[1] < point[0] * (-1) + 4:
-    clusters[0].append(point)
-  else:
-    clusters[1].append(point)
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   x_c, y_c, m = None, None, 10 ** 9
   for i in range(len(cluster)):
     s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
@@ -567,28 +457,15 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
     if s < m:
       m = s
       x_c, y_c = i_point[0], i_point[1]
-  return x_c, y_c
+  return [x_c, y_c]
 
 centroids = [centroid(clstr) for clstr in clusters]
 ```
 
-```python
-# Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
-  return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
+```python 
+clusters = [[...], [...]]
 
-points = [list(map(float, line.replace(",", ".").split())) 
-          for line in open("7581_A.txt")]
-
-clusters = [[], []]
-
-for point in points:
-  if point[1] < point[0] * (-1) + 4:
-    clusters[0].append(point)
-  else:
-    clusters[1].append(point)
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   x_c, y_c, m = None, None, 10 ** 9
   for i in range(len(cluster)):
     s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
@@ -599,29 +476,16 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
     if s < m:
       m = s
       x_c, y_c = i_point[0], i_point[1]
-  return x_c, y_c
+  return [x_c, y_c]
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs = [x for x, y in centroids]
 ```
 
-```python
-# Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
-  return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
+```python 
+clusters = [[...], [...]]
 
-points = [list(map(float, line.replace(",", ".").split())) 
-          for line in open("7581_A.txt")]
-
-clusters = [[], []]
-
-for point in points:
-  if point[1] < point[0] * (-1) + 4:
-    clusters[0].append(point)
-  else:
-    clusters[1].append(point)
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   x_c, y_c, m = None, None, 10 ** 9
   for i in range(len(cluster)):
     s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
@@ -632,29 +496,16 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
     if s < m:
       m = s
       x_c, y_c = i_point[0], i_point[1]
-  return x_c, y_c
+  return [x_c, y_c]
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]
 ```
 
-```python
-# Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
-  return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
+```python 
+clusters = [[...], [...]]
 
-points = [list(map(float, line.replace(",", ".").split())) 
-          for line in open("7581_A.txt")]
-
-clusters = [[], []]
-
-for point in points:
-  if point[1] < point[0] * (-1) + 4:
-    clusters[0].append(point)
-  else:
-    clusters[1].append(point)
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   x_c, y_c, m = None, None, 10 ** 9
   for i in range(len(cluster)):
     s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
@@ -665,13 +516,18 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
     if s < m:
       m = s
       x_c, y_c = i_point[0], i_point[1]
-  return x_c, y_c
+  return [x_c, y_c]
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]
 print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 ````
+
+
+<!--
+Вытащим из `centroids` абсциссы [click] и ординаты. [click] Найдем ср. арифм. и перемножим [click]
+-->
 
 ---
 layout: codesplit
@@ -687,9 +543,8 @@ layout: codesplit
 
 ::right::
 
-```python
-# Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
+```python {*}{maxHeight:'420px'}
+def d(A: list[float, float], B: list[float, float]) -> float:
   return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
 
 points = [list(map(float, line.replace(",", ".").split())) 
@@ -698,12 +553,12 @@ points = [list(map(float, line.replace(",", ".").split()))
 clusters = [[], []]
 
 for point in points:
-  if point[1] < point[0] * (-1) + 4:
+  if point[1] < point[0] * (-0.5) + 3:
     clusters[0].append(point)
   else:
     clusters[1].append(point)
 
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   x_c, y_c, m = None, None, 10 ** 9
   for i in range(len(cluster)):
     s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
@@ -714,7 +569,7 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
     if s < m:
       m = s
       x_c, y_c = i_point[0], i_point[1]
-  return x_c, y_c
+  return [x_c, y_c]
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]
@@ -722,12 +577,10 @@ print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
 ```md
-
+10738.21226546789 30730.076059078103
 ```
 
-<!--
-Ответ мы получили, но среди вас крайне много любителей поменьше думать и поменьше писать, поэтому...
--->
+
 
 ---
 layout: codesplit
@@ -744,10 +597,11 @@ layout: codesplit
 ::right::
 
 ````md magic-move
-```python
+```python 
 # Расстояние
-def d(A: tuple[float, float], B: tuple[float, float]) -> float:
+def d(A: list[float, float], B: list[float, float]) -> float:
   return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
+
 
 points = [list(map(float, line.replace(",", ".").split())) 
           for line in open("7581_A.txt")]
@@ -755,30 +609,13 @@ points = [list(map(float, line.replace(",", ".").split()))
 clusters = [[], []]
 
 for point in points:
-  if point[1] < point[0] * (-1) + 4:
+  if point[1] < point[0] * (-0.5) + 3:
     clusters[0].append(point)
   else:
     clusters[1].append(point)
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
-  x_c, y_c, m = None, None, 10 ** 9
-  for i in range(len(cluster)):
-    s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
-    i_point = cluster[i]
-    for j in range(len(cluster)):
-      B = cluster[j]
-      s += d(i_point, B)
-    if s < m:
-      m = s
-      x_c, y_c = i_point[0], i_point[1]
-  return x_c, y_c
-
-centroids = [centroid(clstr) for clstr in clusters]
-xs, ys = [x for x, y in centroids], [y for x, y in centroids]
-print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
-```python
+```python 
 # Расстояние
 d = lambda A, B: ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
 
@@ -788,27 +625,26 @@ points = [list(map(float, line.replace(",", ".").split()))
 clusters = [[], []]
 
 for point in points:
-  if point[1] < point[0] * (-1) + 4:
+  if point[1] < point[0] * (-0.5) + 3:
     clusters[0].append(point)
   else:
     clusters[1].append(point)
+```
 
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
-  x_c, y_c, m = None, None, 10 ** 9
-  for i in range(len(cluster)):
-    s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
-    i_point = cluster[i]
-    for j in range(len(cluster)):
-      B = cluster[j]
-      s += d(i_point, B)
-    if s < m:
-      m = s
-      x_c, y_c = i_point[0], i_point[1]
-  return x_c, y_c
+```python 
+# Расстояние
+from math import dist as d
 
-centroids = [centroid(clstr) for clstr in clusters]
-xs, ys = [x for x, y in centroids], [y for x, y in centroids]
-print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
+points = [list(map(float, line.replace(",", ".").split())) 
+          for line in open("7581_A.txt")]
+
+clusters = [[], []]
+
+for point in points:
+  if point[1] < point[0] * (-0.5) + 3:
+    clusters[0].append(point)
+  else:
+    clusters[1].append(point)
 ```
 
 ```python
@@ -821,63 +657,13 @@ points = [list(map(float, line.replace(",", ".").split()))
 clusters = [[], []]
 
 for point in points:
-  if point[1] < point[0] * (-1) + 4:
+  if point[1] + point[0] * (0.5) < 3:
     clusters[0].append(point)
   else:
     clusters[1].append(point)
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
-  x_c, y_c, m = None, None, 10 ** 9
-  for i in range(len(cluster)):
-    s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
-    i_point = cluster[i]
-    for j in range(len(cluster)):
-      B = cluster[j]
-      s += d(i_point, B)
-    if s < m:
-      m = s
-      x_c, y_c = i_point[0], i_point[1]
-  return x_c, y_c
-
-centroids = [centroid(clstr) for clstr in clusters]
-xs, ys = [x for x, y in centroids], [y for x, y in centroids]
-print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
-```python
-# Расстояние
-from math import dist as d
-
-points = [list(map(float, line.replace(",", ".").split())) 
-          for line in open("7581_A.txt")]
-
-clusters = [[], []]
-
-for point in points:
-  if point[1] + point[0] < 4:
-    clusters[0].append(point)
-  else:
-    clusters[1].append(point)
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
-  x_c, y_c, m = None, None, 10 ** 9
-  for i in range(len(cluster)):
-    s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
-    i_point = cluster[i]
-    for j in range(len(cluster)):
-      B = cluster[j]
-      s += d(i_point, B)
-    if s < m:
-      m = s
-      x_c, y_c = i_point[0], i_point[1]
-  return x_c, y_c
-
-centroids = [centroid(clstr) for clstr in clusters]
-xs, ys = [x for x, y in centroids], [y for x, y in centroids]
-print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
-```
-
-```python
+```python 
 # Расстояние
 from math import dist as d
 
@@ -885,11 +671,15 @@ points = [list(map(float, line.replace(",", ".").split()))
           for line in open("7581_A.txt")]
 
 clusters = [
-  [p for p in points if (p[0] + p[1] < 4)],
-  [p for p in points if (p[0] + p[1] > 4)]
+  [p for p in points if (p[0] * (0.5) + p[1] < 3)],
+  [p for p in points if (p[0] * (0.5) + p[1] > 3)]
 ]
+```
 
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
+```python
+clusters = [[...], [...]]
+
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   x_c, y_c, m = None, None, 10 ** 9
   for i in range(len(cluster)):
     s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
@@ -900,26 +690,19 @@ def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
     if s < m:
       m = s
       x_c, y_c = i_point[0], i_point[1]
-  return x_c, y_c
+  return [x_c, y_c]
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]
 print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
+
 ```
 
-```python
-# Расстояние
-from math import dist as d
 
-points = [list(map(float, line.replace(",", ".").split())) 
-          for line in open("7581_A.txt")]
+```python 
+clusters = [[...], [...]]
 
-clusters = [
-  [p for p in points if (p[0] + p[1] < 4)],
-  [p for p in points if (p[0] + p[1] > 4)]
-]
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   min_point, min_sum = None, 10 ** 9
   for point in cluster:
     total_distance = sum(d(point, other) for other in cluster)
@@ -933,19 +716,10 @@ xs, ys = [x for x, y in centroids], [y for x, y in centroids]
 print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
-```python
-# Расстояние
-from math import dist as d
+```python 
+clusters = [[...], [...]]
 
-points = [list(map(float, line.replace(",", ".").split())) 
-          for line in open("7581_A.txt")]
-
-clusters = [
-  [p for p in points if (p[0] + p[1] < 4)],
-  [p for p in points if (p[0] + p[1] > 4)]
-]
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
     distances = [
         (point, sum(d(point, other) for other in cluster))
         for point in cluster
@@ -963,19 +737,10 @@ xs, ys = [x for x, y in centroids], [y for x, y in centroids]
 print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
-```python
-# Расстояние
-from math import dist as d
+```python 
+clusters = [[...], [...]]
 
-points = [list(map(float, line.replace(",", ".").split())) 
-          for line in open("7581_A.txt")]
-
-clusters = [
-  [p for p in points if (p[0] + p[1] < 4)],
-  [p for p in points if (p[0] + p[1] > 4)]
-]
-
-def centroid(cluster: list[list[float, float]]) -> tuple[float, float]:
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   min_point = min(cluster, 
               key=lambda point: sum(d(point, other) for other in cluster))
   return min_point
@@ -985,7 +750,19 @@ xs, ys = [x for x, y in centroids], [y for x, y in centroids]
 print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
-```python
+```python 
+clusters = [[...], [...]]
+
+def centroid(cluster):
+  min_point = min(cluster, key=lambda p: sum(d(p, o) for o in cluster))
+  return min_point
+
+centroids = [centroid(clstr) for clstr in clusters]
+xs, ys = [x for x, y in centroids], [y for x, y in centroids]
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
+```
+
+```python 
 # Расстояние
 from math import dist as d
 
@@ -993,8 +770,8 @@ points = [list(map(float, line.replace(",", ".").split()))
           for line in open("7581_A.txt")]
 
 clusters = [
-  [p for p in points if (p[0] + p[1] < 4)],
-  [p for p in points if (p[0] + p[1] > 4)]
+  [p for p in points if (p[0] * (0.5) + p[1] < 3)],
+  [p for p in points if (p[0] * (0.5) + p[1] > 3)]
 ]
 
 def centroid(cluster):
@@ -1015,25 +792,20 @@ print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 
 Еще у нас есть линейная функция для отнесения точек к кластерам.
 
-Т.к. у всех здесь плохо с математикой, я упрощу линейную функцию за вас. `y = -x + 4 => x + y = 4`
+Т.к. у всех здесь плохо с математикой, я упрощу линейную функцию за вас. `y = -x + 4 => x + y = 4` [click]
 
-[click] 
+Так лучше, потому что координаты вместе, а они - из Дано. К счастью, прямая проведена так, что она ни с чем не пересекается.
 
-Так лучше, потому что координаты вместе, а они - из Дано.
-
-К счастью, прямая проведена так, что она ни с чем не пересекается.
-
-`clusters` Здесь мы проходимся по точкам и смотрим на ту прямую. Предлагаю просто два раза пройтись и использовать  [click] генератор.
+`clusters` Здесь мы проходимся по точкам и смотрим отношение точки к прямой. В таком нагромождении ничего плохого нет, но предлагаю просто два раза пройтись и использовать  [click] генератор. Точно так же сверну код. [click]
 
 Смертельный номер. Мы здесь `s in centroid` считаем сумму, но есть же `sum`, используем объект точки вместо координат `x_c, y_c` [click]
 
-Переместим вычисления вверх и просто пройдемся по дистанциям,
-`min_point` берем первую попавшуюся
-[click]
+Переместим вычисления вверх и просто пройдемся по дистанциям. Видно, как мы считаем сумму дистанций, поэтому вытащим это в генератор. [click]
 
-Теперь еще более ясно, что мы ищем точку с мин. суммой дистанций и видно как считается сумма. Видно, как свернуть это в `min` [click]
+Остался последний цикл, где мы просто ищем точку с мин. суммой расстояний. Сворачивается это в `min` [click]
 
-Букв много, поэтому можно поменьше. Аннотации типов на экзамене писать крайне не рекомендуется. 
+Букв много, поэтому можно поменьше. [click]
+Аннотации типов на экзамене писать крайне не рекомендуется. 
 
 Ну и переменные [click]
 
@@ -1063,7 +835,7 @@ layout: codesplit
 ::right::
 
 ````md magic-move
-```python
+```python 
 # Расстояние
 from math import dist as d
 
@@ -1085,7 +857,7 @@ xs, ys = [x for x, y in centroids], [y for x, y in centroids]
 print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
-```python
+```python 
 # Расстояние
 from math import dist as d
 
@@ -1093,8 +865,8 @@ points = [list(map(float, line.replace(",", ".").split()))
           for line in open("7581_B.txt")]
 
 clusters = [
-  [p for p in points if p[0] + p[1] < 6],
-  [p for p in points if p[0] + p[1] > 6 and p[1] - p[0] * (1/3) < 6],
+  [p for p in points if p[0] * (1.5) + p[1] < 6],
+  [p for p in points if p[0] * (1.5) + p[1] > 6 and p[1] - p[0] * (1/3) < 6],
   [p for p in points if p[1] - p[0] * (1/3) > 6]
 ]
 
@@ -1127,7 +899,7 @@ layout: codesplit
 
 ::right::
 
-```python
+```python 
 # Расстояние
 from math import dist as d
 
@@ -1135,8 +907,8 @@ points = [list(map(float, line.replace(",", ".").split()))
           for line in open("7581_B.txt")]
 
 clusters = [
-  [p for p in points if p[0] + p[1] < 6],
-  [p for p in points if p[0] + p[1] > 6 and p[1] - p[0] * (1/3) < 6],
+  [p for p in points if p[0] * (1.5) + p[1] < 6],
+  [p for p in points if p[0] * (1.5) + p[1] > 6 and p[1] - p[0] * (1/3) < 6],
   [p for p in points if p[1] - p[0] * (1/3) > 6]
 ]
 

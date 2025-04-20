@@ -61,6 +61,7 @@ const props = defineProps({
 
 .col-right {
   grid-area: 2 / 2 / 3 / 3; /* Right column */
+  margin-left: 4%;
 }
 
 .col-bottom {

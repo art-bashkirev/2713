@@ -1,7 +1,7 @@
 ---
 author: Artem Bashkirev
 keywords: 27, ЕГЭ Информатика
-aspectRatio: 4/3
+aspectRatio: 16/9
 addons:
   - slidev-addon-sync
 fonts:
@@ -20,7 +20,7 @@ layout: full
 
 <style>
 .huge-number {
-  font: 40rem "Monaspace Neon", sans-serif;
+  font: 35rem "Monaspace Neon", sans-serif;
   font-weight: 600;
   margin: 0;
   margin-top: 3rem;
