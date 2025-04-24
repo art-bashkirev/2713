@@ -24,13 +24,13 @@ layout: figuresplit
 
 Файл А
 
-<PlotlyFigure csvUrl="/data-csv/7944_A.csv" xColumn="0" yColumn="1" />
+<PlotlyFigure csvUrl="https://raw.githubusercontent.com/art-bashkirev/2713-pub/refs/heads/main/data-csv/7944_A.csv" xColumn="0" yColumn="1" />
 
 ::right::
 
 Файл B
 
-<PlotlyFigure csvUrl="/data-csv/7944_B.csv" xColumn="0" yColumn="1" />
+<PlotlyFigure csvUrl="https://raw.githubusercontent.com/art-bashkirev/2713-pub/refs/heads/main/data-csv/7944_B.csv" xColumn="0" yColumn="1" />
 
 ---
 layout: codesplit
@@ -44,7 +44,7 @@ layout: codesplit
 
 В предыдущей серии...
 
-<PlotlyFigure csvUrl="/data-csv/7944_A.csv" xColumn="0" yColumn="1" />
+<PlotlyFigure csvUrl="https://raw.githubusercontent.com/art-bashkirev/2713-pub/refs/heads/main/data-csv/7944_A.csv" xColumn="0" yColumn="1" />
 
 <style>
 .plotly-figure {
@@ -181,4 +181,3 @@ print(abs((sum(xs) / len(xs)) * 10_000),
 ```md
 43789.56525731115 62202.015534471495
 ```
-`
