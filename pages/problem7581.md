@@ -39,13 +39,13 @@ layout: figuresplit
 
 Файл А
 
-<PlotlyFigure csvUrl="/data-csv/7581_A.csv" xColumn="0" yColumn="1" />
+<PlotlyFigure csvUrl="https://raw.githubusercontent.com/art-bashkirev/2713-pub/refs/heads/main/data-csv/7581_A.csv" xColumn="0" yColumn="1" />
 
 ::right::
 
 Файл B
 
-<PlotlyFigure csvUrl="/data-csv/7581_B.csv" xColumn="0" yColumn="1" />
+<PlotlyFigure csvUrl="https://raw.githubusercontent.com/art-bashkirev/2713-pub/refs/heads/main/data-csv/7581_B.csv" xColumn="0" yColumn="1" />
 
 
 <!-- 
@@ -193,7 +193,7 @@ layout: codesplit
 
 ::left::
 
-<PlotlyFigure csvUrl="/data-csv/7581_A.csv" xColumn="0" yColumn="1" />
+<PlotlyFigure csvUrl="https://raw.githubusercontent.com/art-bashkirev/2713-pub/refs/heads/main/data-csv/7581_A.csv" xColumn="0" yColumn="1" />
 
 ::right::
 
