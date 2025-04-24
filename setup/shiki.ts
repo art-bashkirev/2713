@@ -14,7 +14,8 @@ export default defineShikiSetup(() => {
       'markdown',
       'javascript',
       'typescript',
-      'cpp'
+      'cpp',
+      'zsh'
       // ...
     ],
     transformers: [

@@ -47,7 +47,7 @@ const props = defineProps({
 <style scoped>
 .two-cols-header {
   display: grid;
-  grid-template-columns: 22rem 1fr; /* Left column fixed width, right column takes remaining space */
+  grid-template-columns: 1fr 1fr; /* Both columns take equal space */
   grid-template-rows: auto 1fr auto; /* Adjust rows to fit content */
 }
 
@@ -61,7 +61,6 @@ const props = defineProps({
 
 .col-right {
   grid-area: 2 / 2 / 3 / 3; /* Right column */
-  margin-left: 4%;
 }
 
 .col-bottom {

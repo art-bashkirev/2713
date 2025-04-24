@@ -1,0 +1,19 @@
+.slidev-layout {
+    padding-top: 1.3rem;
+    padding-bottom: 2.5rem;
+    padding-left: 2rem;
+    padding-right: 1.3rem;
+    font-size: 1rem;
+}
+
+.slidev-layout h1 + p {
+    margin-top: -1.05rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+}
+
+.slidev-layout p {
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+    line-height: 1.5rem;
+}
