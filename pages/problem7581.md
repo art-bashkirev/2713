@@ -39,13 +39,13 @@ layout: figuresplit
 
 Файл А
 
-<PlotlyFigure csvUrl="https://raw.githubusercontent.com/art-bashkirev/2713-pub/refs/heads/main/data-csv/7581_A.csv" xColumn="0" yColumn="1" />
+<PlotlyFigure csvUrl="/data-csv/7581_A.csv" xColumn="0" yColumn="1" />
 
 ::right::
 
 Файл B
 
-<PlotlyFigure csvUrl="https://raw.githubusercontent.com/art-bashkirev/2713-pub/refs/heads/main/data-csv/7581_B.csv" xColumn="0" yColumn="1" />
+<PlotlyFigure csvUrl="/data-csv/7581_B.csv" xColumn="0" yColumn="1" />
 
 
 <!-- 
@@ -193,15 +193,7 @@ layout: codesplit
 
 ::left::
 
-<PlotlyFigure csvUrl="https://raw.githubusercontent.com/art-bashkirev/2713-pub/refs/heads/main/data-csv/7581_A.csv" xColumn="0" yColumn="1" />
-<style>
-.plotly-figure {
-  margin: 0;
-  align-contents: top;
-  width: 350px;
-  height: auto;
-}
-</style>
+<PlotlyFigure csvUrl="/data-csv/7581_A.csv" xColumn="0" yColumn="1" />
 
 ::right::
 
@@ -359,7 +351,7 @@ def centroid(cluster: list[list[float, float]]) -> list[float, float]:
 ````
 
 <!--
-Код немного не влезает... [click] Создадим функцию `centroid`, она получает список точек кластера, и возвращает одну из точек, сумма расстояний от которой до других звезд минимальна. (Как в условии) [click] Будем хранить координаты такой точки, m - мин. найденная сумма расстояний. [click] Начнем считать [click] Берем i-тую точку и сравниваем с j-той. [click] Затем смотрим на полученную сумму. [click] Если меньше текущей минимальной, мы нашли 'лучший' центроид. Вернем эту точку[click]
+Код немного не влезает... [click] Создадим функцию `centroid`, она получает список точек кластера, и возвращает одну из точек, сумма расстояний от которой до других звезд минимальна. (Как в условии) [click] Будем хранить координаты такой точки, m - мин. найденная сумма расстояний. [click] Начнем ходить по точкам. [click] Берем i-тую точку и считаем расстояние от нее до j-той. [click] Затем смотрим на полученную сумму. [click] Если меньше текущей минимальной, мы нашли 'лучший' центроид. Вернем эту точку[click]
 
 Далее в программе
 -->

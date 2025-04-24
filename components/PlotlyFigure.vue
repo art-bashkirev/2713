@@ -1,87 +1,115 @@
 <!-- PlotlyFigure.vue -->
 <template>
-  <div ref="plotlyContainer" class="plotly-figure"></div>
+  <div>
+    <div ref="plotlyContainer" class="plotly-figure"></div>
+  </div>
 </template>
   
 <script setup lang="ts">
-  import { ref, onMounted } from 'vue';
-  import Plotly from 'plotly.js-dist-min';
-  import Papa from 'papaparse';
-  
-  const props = defineProps({
-    csvUrl: {
-      type: String,
-      required: true,
-    },
-    xColumn: {
-      type: String,
-      required: true,
-    },
-    yColumn: {
-      type: String,
-      required: true,
-    },
-  });
-  
-  const plotlyContainer = ref(null);
-  
-  const fetchData = async () => {
+import { ref, onMounted, watch } from 'vue';
+import Plotly from 'plotly.js-dist-min';
+import Papa from 'papaparse';
+
+const props = defineProps({
+  csvUrl: {
+    type: String,
+    required: false,
+  },
+  xColumn: {
+    type: String,
+    required: true,
+  },
+  yColumn: {
+    type: String,
+    required: true,
+  },
+});
+
+const plotlyContainer = ref(null);
+const localCsvText = ref<string | null>(null);
+
+const fetchData = async () => {
+  if (localCsvText.value) {
+    return localCsvText.value;
+  }
+  if (props.csvUrl) {
     const response = await fetch(props.csvUrl);
     const text = await response.text();
     return text;
-  };
-  
-  const parseCSV = (csvText) => {
-    return new Promise((resolve, reject) => {
-      Papa.parse(csvText, {
-        header: true,
-        complete: (results) => {
-          resolve(results.data);
-        },
-        error: (error) => {
-          reject(error);
-        },
-      });
-    });
-  };
-  
-  const createPlot = (data) => {
-    const xData = data.map(row => parseFloat(row[props.xColumn]));
-    const yData = data.map(row => parseFloat(row[props.yColumn]));
-  
-    const plotData = [
-      {
-        x: xData,
-        y: yData,
-        mode: 'markers',
-        type: 'scatter',
+  }
+  throw new Error('No CSV source provided');
+};
+
+const parseCSV = (csvText: string) => {
+  return new Promise<any[]>((resolve, reject) => {
+    Papa.parse(csvText, {
+      header: true,
+      complete: (results) => {
+        resolve(results.data);
       },
-    ];
-  
-    const layout = {
-      title: 'CSV Data Plot',
-      xaxis: { title: "x"},
-      yaxis: { title: "y"},
-      margin: {t: 20, b: 20, r: 20, l: 20},
-    };
-  
-    Plotly.newPlot(plotlyContainer.value, plotData, layout, {displaylogo: false, staticPlot: true});
-  };
-  
-  onMounted(async () => {
-    try {
-      const csvText = await fetchData();
-      const data = await parseCSV(csvText);
-      createPlot(data);
-    } catch (error) {
-      console.error('Error fetching or parsing CSV:', error);
-    }
+      error: (error) => {
+        reject(error);
+      },
+    });
   });
+};
+
+const createPlot = (data: any[]) => {
+  const xData = data.map(row => parseFloat(row[props.xColumn]));
+  const yData = data.map(row => parseFloat(row[props.yColumn]));
+
+  const plotData = [
+    {
+      x: xData,
+      y: yData,
+      mode: 'markers',
+      type: 'scatter',
+    },
+  ];
+
+  const layout = {
+    title: 'CSV Data Plot',
+    xaxis: { title: "x"},
+    yaxis: { title: "y"},
+    margin: {t: 20, b: 20, r: 20, l: 20},
+  };
+
+  Plotly.newPlot(plotlyContainer.value, plotData, layout, {displaylogo: false, staticPlot: true});
+};
+
+const loadAndPlot = async () => {
+  try {
+    const csvText = await fetchData();
+    const data = await parseCSV(csvText);
+    createPlot(data);
+  } catch (error) {
+    console.error('Error fetching or parsing CSV:', error);
+  }
+};
+
+const onFileChange = (e: Event) => {
+  const files = (e.target as HTMLInputElement).files;
+  if (files && files.length > 0) {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      localCsvText.value = event.target?.result as string;
+      loadAndPlot();
+    };
+    reader.readAsText(files[0]);
+  }
+};
+
+onMounted(loadAndPlot);
+
+// Re-plot if csvUrl changes and no local file is loaded
+watch(() => props.csvUrl, () => {
+  if (!localCsvText.value) loadAndPlot();
+});
 </script>
   
 <style scoped>
 .plotly-figure {
-  width: 400px;
+  width: 350px;
   height: 300px;
 }
 </style>
