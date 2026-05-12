@@ -110,32 +110,23 @@ print(abs(int(px * 10_000)), abs(int(py * 10_000)))
 
 ```python
 # Расстояние
-from itertools import combinations
 from math import dist as d
 
 points = [list(map(float, line.replace(",", ".").split()))
-          for line in open("8242_B.txt")]
-
-extra = [
-  [20.16999236, 16.84154051],
-  [9.715587819, 18.74129471],
-  [24.18647922, -18.98201366],
-]
-points = [p for p in points if p not in extra]
+          for line in open("8242_A.txt")]
 
 clusters = [
-  [p for p in points if p[0] < 0],
-  [p for p in points if p[0] > 0 and p[1] > 10],
-  [p for p in points if p[0] > 0 and p[1] < 10],
+  [p for p in points if p[1] < 5],
+  [p for p in points if p[1] > 5]
 ]
 
 def centroid(cluster):
   return min(cluster, key=lambda p: sum(d(p, o) for o in cluster))
 
 centroids = [centroid(clstr) for clstr in clusters]
-q1 = min(d(a, b) for a, b in combinations(centroids, 2))
-q2 = max(d(a, b) for a, b in combinations(centroids, 2))
-print(abs(int(q1 * 10_000)), abs(int(q2 * 10_000)))
+px = sum(x for x, y in centroids)
+py = sum(y for x, y in centroids)
+print(abs(int(px * 10_000)), abs(int(py * 10_000)))
 ```
 ````
 
@@ -153,6 +144,7 @@ layout: codesplit
 
 ::right::
 
+````md magic-move
 ```python
 # Расстояние
 from itertools import combinations
@@ -176,14 +168,7 @@ print(abs(int(px * 10_000)), abs(int(py * 10_000)))
 
 # Файл B
 points = [list(map(float, line.replace(",", ".").split()))
-          for line in open("8078_B.txt")]
-
-extra = [
-  [20.16999236, 16.84154051],
-  [9.715587819, 18.74129471],
-  [24.18647922, -18.98201366],
-]
-points = [p for p in points if p not in extra]
+          for line in open("8242_B.txt")]
 
 clusters = [
   [p for p in points if p[0] < 0],
@@ -198,6 +183,7 @@ print(abs(int(q1 * 10_000)), abs(int(q2 * 10_000)))
 ```
 
 ```md
-335980 146086
-316610 376330
+107002 323741
+58778 151839
 ```
+````
