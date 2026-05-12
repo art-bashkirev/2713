@@ -17,4 +17,95 @@ $$
 
 Для файла Б определите координаты центра каждого кластера, затем найдите два числа: $Q_1$ – в кластере с наибольшим количеством точек число таких точек, которые находятся на расстоянии не более $1.2$ от центра кластера, и $Q_2$ – в кластере с наибольшим количеством точек число таких точек, которые находятся на расстоянии не более $0.75$ от центра кластера. Гарантируется, что во всех кластерах количество точек различно. 
 
-В ответе запишите четыре числа: в первой строке сначала целую часть произведения $P_x×10 000$, затем целую часть произведения $P_y×10 000$ для файла А, во второй строке – сначала $Q_1$, затем $Q_2$.
+В ответе запишите четыре числа: в первой строке сначала целую часть произведения $P_x\cdot 10 000$, затем целую часть произведения $P_y\cdot 10 000$ для файла А, во второй строке – сначала $Q_1$, затем $Q_2$.
+
+---
+layout: figuresplit
+---
+
+# Решение № 8715
+
+ЕГКР-2025 · Накидали гробов
+
+::left::
+
+Файл А
+
+<PlotlyFigure csvUrl="/8715_A.csv" xColumn="0" yColumn="1" />
+
+::right::
+
+Файл B
+
+<PlotlyFigure csvUrl="/8715_B.csv" xColumn="0" yColumn="1" />
+
+---
+layout: codesplit
+---
+
+# Решение № 8715
+
+ЕГКР-2025 · Накидали гробов
+
+::left::
+
+Они даже не старались
+
+::right::
+````md magic-move
+```python
+from math import dist as d
+
+points = [list(map(float, line.replace(",", ".").split())) 
+          for line in open("8243_B.txt")]
+
+clusters = [
+  [p for p in points if p[1] > 20],
+  [p for p in points if 15 < p[1] < 20],
+  [p for p in points if p[1] < 15]
+]
+
+centroid = lambda c: min(c, key=lambda p: sum(d(p, o) for o in c))
+
+centroids = [centroid(clstr) for clstr in clusters]
+xs, ys = [x for x, y in centroids], [y for x, y in centroids]
+print(min(d(c, (0, 0)) for c in centroids) * 10000,
+      max(d(c, (0, 0)) for c in centroids) * 10000)
+```
+```python
+from math import dist as d
+
+points = [list(map(float, line.replace(",", ".").split())) 
+          for line in open("8715_A.txt")]
+
+clusters = [
+  [p for p in points if p[1] > 10],
+  [p for p in points if p[1] < 10]
+]
+
+centroid = lambda c: min(c, key=lambda p: sum(d(p, o) for o in c))
+
+centroids = [centroid(clstr) for clstr in clusters]
+xs, ys = [x for x, y in centroids], [y for x, y in centroids]
+print(min(d(c, (0, 0)) for c in centroids) * 10000,
+      max(d(c, (0, 0)) for c in centroids) * 10000)
+```
+```python
+from math import dist as d
+
+points = [list(map(float, line.replace(",", ".").split())) 
+          for line in open("8715_A.txt")]
+
+clusters = [
+  [p for p in points if p[1] > 10],
+  [p for p in points if p[1] < 10]
+]
+
+centroid = lambda c: min(c, key=lambda p: sum(d(p, o) for o in c))
+
+centroids = [centroid(clstr) for clstr in clusters]
+xs, ys = [x for x, y in centroids], [y for x, y in centroids]
+print(min(d(c, (1, 0)) for c in centroids) * 10000,
+      max(d(c, (1, 0)) for c in centroids) * 10000)
+```
+````
