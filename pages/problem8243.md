@@ -38,6 +38,8 @@ layout: codesplit
 
 Напоминаю...
 
+Для файла А определите координаты центра каждого кластера</span>, затем найдите два числа: $P_x$ - **сумму абсцисс центров кластеров**, и $P_y$ – **сумму ординат центров кластеров**.
+
 ::right::
 
 ````md magic-move
@@ -81,6 +83,9 @@ print(sum(xs)*10000, sum(ys)*10000)
 ```
 ````
 
+<!-- Поменяем изначальный хэндлинг для файла A, сразу же подготовим ответ! Не зря же мы изначально делили на x и y... [click] И глянем на графики
+-->
+
 ---
 layout: figuresplit
 ---
@@ -100,3 +105,155 @@ layout: figuresplit
 Файл B
 
 <PlotlyFigure csvUrl="/8243_B.csv" xColumn="0" yColumn="1" />
+
+<!-- Тут всё ещё все видно, и аномалии для файла B ну... трудно не заметить! 
+
+y=8 для А
+и три прямых для B... не будем заморачиваться...
+-->
+
+---
+layout: codesplit
+---
+
+# Решение № 8243
+
+Моя задача с ЕГЭ-2025
+
+::left::
+
+Напоминаю...
+
+
+
+::right::
+
+````md magic-move
+```python
+from math import dist as d
+
+points = [list(map(float, line.replace(",", ".").split())) 
+          for line in open("8243_A.txt")]
+
+clusters = [
+  [p for p in points if p[1] + p[0] * (1.5) > 0],
+  [p for p in points if p[1] + p[0] * (1.5) < 0]
+]
+
+centroid = lambda c: min(c, key=lambda p: sum(d(p, o) for o in c))
+
+centroids = [centroid(clstr) for clstr in clusters]
+xs, ys = [x for x, y in centroids], [y for x, y in centroids]
+print(sum(xs)*10000, sum(ys)*10000)
+```
+```python
+from math import dist as d
+
+points = [list(map(float, line.replace(",", ".").split())) 
+          for line in open("8243_A.txt")]
+
+clusters = [
+  [p for p in points if p[1] > 8],
+  [p for p in points if p[1] < 8]
+]
+
+centroid = lambda c: min(c, key=lambda p: sum(d(p, o) for o in c))
+
+centroids = [centroid(clstr) for clstr in clusters]
+xs, ys = [x for x, y in centroids], [y for x, y in centroids]
+print(sum(xs)*10000, sum(ys)*10000)
+```
+````
+
+---
+layout: codesplit
+---
+
+# Решение № 8243
+
+Моя задача с ЕГЭ-2025
+
+::left::
+
+Ответ для файла A
+
+::right::
+```python
+from math import dist as d
+
+points = [list(map(float, line.replace(",", ".").split())) 
+          for line in open("8243_A.txt")]
+
+clusters = [
+  [p for p in points if p[1] > 8],
+  [p for p in points if p[1] < 8]
+]
+
+centroid = lambda c: min(c, key=lambda p: sum(d(p, o) for o in c))
+
+centroids = [centroid(clstr) for clstr in clusters]
+xs, ys = [x for x, y in centroids], [y for x, y in centroids]
+print(sum(xs)*10000, sum(ys)*10000)
+```
+
+```md
+110156.913 196632.874
+```
+
+---
+layout: codesplit
+---
+
+# Решение № 8243
+
+Моя задача с ЕГЭ-2025
+
+::left::
+
+С файлом Б ещё не покончено
+
+Для файла Б определите координаты центра каждого кластера, затем найдите два числа: $Q_1$ – **минимальное расстояние от центра кластера до начала координат**, и $Q_2$ – **максимальное расстояние от центра кластера до начала координат**.
+
+::right::
+````md magic-move
+```python
+from math import dist as d
+
+points = [list(map(float, line.replace(",", ".").split())) 
+          for line in open("8243_B.txt")]
+
+clusters = [
+  [p for p in points if p[1] > 8],
+  [p for p in points if p[1] < 8]
+]
+
+centroid = lambda c: min(c, key=lambda p: sum(d(p, o) for o in c))
+
+centroids = [centroid(clstr) for clstr in clusters]
+xs, ys = [x for x, y in centroids], [y for x, y in centroids]
+print(sum(xs)*10000, sum(ys)*10000)
+```
+```python
+from math import dist as d
+
+points = [list(map(float, line.replace(",", ".").split())) 
+          for line in open("8243_B.txt")]
+
+clusters = [
+  [p for p in points if p[1] > 20],
+  [p for p in points if 15 < p[1] < 20],
+  [p for p in points if p[1] < 15]
+]
+
+centroid = lambda c: min(c, key=lambda p: sum(d(p, o) for o in c))
+
+centroids = [centroid(clstr) for clstr in clusters]
+xs, ys = [x for x, y in centroids], [y for x, y in centroids]
+print(min(d(c, (0, 0)) for c in centroids) * 10000,
+      max(d(c, (0, 0)) for c in centroids) * 10000)
+```
+````
+
+<!-- Придется посерьезнее поглазеть в него... Благополучно удалить аномалии и получить [click]
+
+Ответ!-->
