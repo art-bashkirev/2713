@@ -158,7 +158,7 @@ def check_7944() -> list[CheckResult]:
     # As written on slides (contains typo p[1] + p[1] * 1.5 < 0)
     slide_clusters = [
         [p for p in points if p[1] + p[0] * 1.5 > 0],
-        # Intentional: replicate the exact slide code (y + y*1.5 < 0), not the corrected boundary (y + x*1.5 < 0).
+        # Intentional: replicate exact slide code (y + y*1.5 < 0 -> y < 0), not the corrected boundary (y + x*1.5 < 0).
         [p for p in points if p[1] + p[1] * 1.5 < 0],
     ]
     slide_covered = len(slide_clusters[0]) + len(slide_clusters[1])
@@ -281,8 +281,10 @@ def check_8242() -> list[CheckResult]:
         )
 
     # Remove 3 anomalies, then split three main clouds by x-coordinate.
+    # On current 8242_B data, x<0 and x>30 isolate exactly the 3 stated anomalies.
     core = [p for p in b_points if 0 < p[0] < 30]
     corrected_b_clusters = [
+        # After anomaly removal, the three dense clouds are separated by clear x-gaps around ~10 and ~19.
         [p for p in core if p[0] < 10],
         [p for p in core if 10 < p[0] < 19],
         [p for p in core if p[0] > 19],
