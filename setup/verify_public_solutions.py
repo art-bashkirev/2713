@@ -158,7 +158,7 @@ def check_7944() -> list[CheckResult]:
     # As written on slides (contains typo p[1] + p[1] * 1.5 < 0)
     slide_clusters = [
         [p for p in points if p[1] + p[0] * 1.5 > 0],
-        # Intentional: replicates the exact slide typo (p[1] + p[1] * 1.5 < 0)
+        # Intentional: replicate the exact slide code (y + y*1.5 < 0), not the corrected boundary (y + x*1.5 < 0).
         [p for p in points if p[1] + p[1] * 1.5 < 0],
     ]
     slide_covered = len(slide_clusters[0]) + len(slide_clusters[1])
@@ -223,7 +223,7 @@ def check_8242() -> list[CheckResult]:
             CheckResult(
                 "8242/A slide method",
                 False,
-                "unexpectedly runnable",
+                "method became runnable unexpectedly; expected one empty cluster for y<5/y>5 on current data",
             )
         )
 
