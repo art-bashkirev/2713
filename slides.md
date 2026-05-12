@@ -117,7 +117,7 @@ src: ./pages/problem7944.md
 ---
 ---
 # Моя задача с ЕГЭ-2025
-src: ./pages/problem8242.md
+src: ./pages/problem8243.md
 ---
 ---
 # ЕГКР-2025
