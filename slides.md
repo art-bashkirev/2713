@@ -1,19 +1,16 @@
 ---
 author: Artem Bashkirev
+title: Задание 27 ЕГЭ
 keywords: 27, ЕГЭ Информатика
-aspectRatio: 16/9
-addons:
-  - slidev-addon-sync
+aspectRatio: 4/3
 fonts:
-  sans: Ubuntu Sans Mono
-  serif: Monaspace Xenon
+  sans: IBM Plex Sans
+  serif: IBM Plex Serif
   mono: Monaspace Krypton
-drawings:
-  syncAll: false
-  # persist: true
-
+  # mono: IBM Plex Mono
 mdc: true
 layout: full
+remoteAssets: true
 ---
 
 <!-- THIS IS THE COVER -->
@@ -117,4 +114,16 @@ src: ./pages/problem7581.md
 ---
 # ЕГКР-2024
 src: ./pages/problem7944.md 
+---
+---
+# Моя задача с ЕГЭ-2025
+src: ./pages/problem8242.md
+---
+---
+# ЕГКР-2025
+src: ./pages/problem8715.md
+---
+---
+# Досрочный ЕГЭ-2026
+src: ./pages/problem9025.md
 ---

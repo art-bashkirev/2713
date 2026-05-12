@@ -7,8 +7,26 @@
   
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue';
-import Plotly from 'plotly.js-dist-min';
 import Papa from 'papaparse';
+
+let plotlyModulePromise: Promise<typeof import('plotly.js-basic-dist-min')> | null = null;
+
+const loadPlotly = async () => {
+  plotlyModulePromise ??= import('plotly.js-basic-dist-min');
+  return plotlyModulePromise;
+};
+
+const resolveCsvUrl = (csvUrl: string) => {
+  if (/^https?:\/\//i.test(csvUrl) || csvUrl.startsWith('data:') || csvUrl.startsWith('/')) {
+    return csvUrl;
+  }
+
+  if (csvUrl.startsWith('public/')) {
+    return `/${csvUrl.slice('public/'.length)}`;
+  }
+
+  return `/${csvUrl}`;
+};
 
 const props = defineProps({
   csvUrl: {
@@ -33,7 +51,7 @@ const fetchData = async () => {
     return localCsvText.value;
   }
   if (props.csvUrl) {
-    const response = await fetch(props.csvUrl);
+    const response = await fetch(resolveCsvUrl(props.csvUrl));
     const text = await response.text();
     return text;
   }
@@ -55,6 +73,10 @@ const parseCSV = (csvText: string) => {
 };
 
 const createPlot = (data: any[]) => {
+  if (!plotlyContainer.value) {
+    return;
+  }
+
   const xData = data.map(row => parseFloat(row[props.xColumn]));
   const yData = data.map(row => parseFloat(row[props.yColumn]));
 
@@ -74,7 +96,9 @@ const createPlot = (data: any[]) => {
     margin: {t: 20, b: 20, r: 20, l: 20},
   };
 
-  Plotly.newPlot(plotlyContainer.value, plotData, layout, {displaylogo: false, staticPlot: true});
+  void loadPlotly().then(({ default: Plotly }) => {
+    Plotly.newPlot(plotlyContainer.value, plotData, layout, {displaylogo: false, staticPlot: true});
+  });
 };
 
 const loadAndPlot = async () => {

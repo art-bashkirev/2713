@@ -9,22 +9,27 @@ layout: full
 Учёный решил провести кластеризацию некоторого множества звёзд по их расположению на карте звёздного неба. Кластер звёзд – это набор звёзд (точек) на графике. Каждая звезда обязательно принадлежит только одному из кластеров.
 
 <span v-mark="{ at: 1, color: 'red', type: 'underline' }">Центроид – это одна из звёзд</span>
- на графике, сумма расстояний от которой до всех остальных звёзд кластера минимальна. Расстояние между двумя точками $A(x1, y1)$ и $B(x2, y2)$ вычисляется по формуле: $d(A, B) = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$
+ на графике, сумма расстояний от которой до всех остальных звёзд кластера минимальна. Расстояние между двумя точками $A(x_1, y_1)$ и $B(x_2, y_2)$ вычисляется по формуле: 
+$$
+d(A, B) = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}
+$$
 
 <span v-mark="{ at: 2, color: 'red', type: 'underline' }">Даны два входных файла (A и Б).</span> В каждой строке записана информация о расположении на карте одной звезды: сначала координата $x$, затем координата $y$. В файле A хранятся данные о звёздах двух кластеров. Известно, что количество звёзд не превышает $1000$. В файле Б хранятся данные о звёздах трёх кластеров. Известно, что количество звёзд не превышает $10 000$. Структура хранения информации о звездах в файле Б аналогична файлу А.
 
 Для каждого файла <span v-mark="{ at: 1, color: 'red', type: 'underline' }">определите координаты центра каждого кластера</span>, затем вычислите два числа: $P_x$ – среднее арифметическое абсцисс центров кластеров, и $P_y$ – среднее арифметическое ординат центров кластеров.
-В ответе запишите четыре числа: в первой строке сначала целую часть произведения $P_x×10 000$, затем целую часть произведения $P_y×10 000$ для файла А, во второй строке – аналогичные данные для файла Б.
+В ответе запишите четыре числа: в первой строке сначала целую часть произведения $P_x \cdot 10 000$, затем целую часть произведения $P_y \cdot 10 000$ для файла А, во второй строке – аналогичные данные для файла Б.
 
 <!-- 
 
-Начнем читать условие.
+Начнем читать условие. Первое правило ЕГЭ - ответить на вопрос "Что спрашивают"! [click]
 
 Что можно сразу выделить - это определение "Центроид". Центроидом считается одна из данных звезд и найти надо координаты уже существующие. Поэтому придётся ходить по данным.
 
 [click]
 
-Ещё важно - дается 2 файла. Один поменьше, другой побольше. В принципе, пока что можно и перебором все решать.
+Ещё важно - дается 2 файла. Один поменьше, другой побольше. Вроде как на этот год сущую переборную халяву оставили.
+
+Предлагаю посмотреть на файлы.
 -->
 
 ---
@@ -39,13 +44,13 @@ layout: figuresplit
 
 Файл А
 
-<PlotlyFigure csvUrl="https://raw.githubusercontent.com/art-bashkirev/2713-pub/refs/heads/main/data-csv/7581_A.csv" xColumn="0" yColumn="1" />
+<PlotlyFigure csvUrl="/7581_A.csv" xColumn="0" yColumn="1" />
 
 ::right::
 
 Файл B
 
-<PlotlyFigure csvUrl="https://raw.githubusercontent.com/art-bashkirev/2713-pub/refs/heads/main/data-csv/7581_B.csv" xColumn="0" yColumn="1" />
+<PlotlyFigure csvUrl="/7581_B.csv" xColumn="0" yColumn="1" />
 
 
 <!-- 
@@ -69,7 +74,20 @@ layout: codesplit
 
 Расстояние между двумя точками $A$ и $B$ вычисляется по формуле:
 
-$d(A, B) = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$
+$$
+d(A, B) = \sqrt{(x_A - x_B)^2 + (y_A - y_B)^2}
+$$
+
+
+$$
+d\left(\begin{bmatrix}
+x_A \\ y_A
+\end{bmatrix}, 
+\begin{bmatrix}
+x_B \\ y_B
+\end{bmatrix}
+\right) = \sqrt{(x_A - x_B)^2 + (y_A - y_B)^2}
+$$
 </v-click>
 
 ::right::
@@ -106,7 +124,9 @@ layout: codesplit
 
 ::left::
 
-Даны два входных файла (A и Б). В каждой строке записана информация о расположении на карте одной звезды: сначала координата $x$, затем координата $y$.
+Даны два входных файла (A и Б). В каждой строке записана информация о расположении на карте одной звезды:
+
+сначала координата $x$, затем координата $y$.
 
 ::right::
 
@@ -193,7 +213,7 @@ layout: codesplit
 
 ::left::
 
-<PlotlyFigure csvUrl="https://raw.githubusercontent.com/art-bashkirev/2713-pub/refs/heads/main/data-csv/7581_A.csv" xColumn="0" yColumn="1" />
+<PlotlyFigure csvUrl="/7581_A.csv" xColumn="0" yColumn="1" />
 
 ::right::
 
@@ -418,7 +438,7 @@ layout: codesplit
 
 ::left::
 
-В ответе запишите четыре числа: в первой строке сначала целую часть произведения $P_x×10 000$, затем целую часть произведения $P_y×10 000$ для файла А, во второй строке – аналогичные данные для файла Б.
+В ответе запишите четыре числа: в первой строке сначала целую часть произведения $P_x \cdot 10 000$, затем целую часть произведения $P_y \cdot 10 000$ для файла А, во второй строке – аналогичные данные для файла Б.
 
 ::right::
 
@@ -515,7 +535,8 @@ layout: codesplit
 
 ::right::
 
-```python {*}{maxHeight:'400px'}
+```python
+# Расстояние
 def d(A: list[float, float], B: list[float, float]) -> float:
   return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
 
@@ -567,11 +588,10 @@ layout: codesplit
 ::right::
 
 ````md magic-move
-```python 
+```python
 # Расстояние
 def d(A: list[float, float], B: list[float, float]) -> float:
   return ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
-
 
 points = [list(map(float, line.replace(",", ".").split())) 
           for line in open("7581_A.txt")]
@@ -583,9 +603,24 @@ for point in points:
     clusters[0].append(point)
   else:
     clusters[1].append(point)
+
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
+  x_c, y_c, m = None, None, 10 ** 9
+  for i in range(len(cluster)):
+    s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
+    for j in range(len(cluster)):
+      s += d(cluster[i], cluster[j])
+    if s < m:
+      m = s
+      x_c, y_c = cluster[i][0], cluster[i][1]
+  return [x_c, y_c]
+
+centroids = [centroid(clstr) for clstr in clusters]
+xs, ys = [x for x, y in centroids], [y for x, y in centroids]
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
-```python 
+```python
 # Расстояние
 d = lambda A, B: ((A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2) ** 0.5
 
@@ -599,9 +634,24 @@ for point in points:
     clusters[0].append(point)
   else:
     clusters[1].append(point)
+
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
+  x_c, y_c, m = None, None, 10 ** 9
+  for i in range(len(cluster)):
+    s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
+    for j in range(len(cluster)):
+      s += d(cluster[i], cluster[j])
+    if s < m:
+      m = s
+      x_c, y_c = cluster[i][0], cluster[i][1]
+  return [x_c, y_c]
+
+centroids = [centroid(clstr) for clstr in clusters]
+xs, ys = [x for x, y in centroids], [y for x, y in centroids]
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
-```python 
+```python
 # Расстояние
 from math import dist as d
 
@@ -615,6 +665,21 @@ for point in points:
     clusters[0].append(point)
   else:
     clusters[1].append(point)
+
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
+  x_c, y_c, m = None, None, 10 ** 9
+  for i in range(len(cluster)):
+    s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
+    for j in range(len(cluster)):
+      s += d(cluster[i], cluster[j])
+    if s < m:
+      m = s
+      x_c, y_c = cluster[i][0], cluster[i][1]
+  return [x_c, y_c]
+
+centroids = [centroid(clstr) for clstr in clusters]
+xs, ys = [x for x, y in centroids], [y for x, y in centroids]
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
 ```python
@@ -627,13 +692,28 @@ points = [list(map(float, line.replace(",", ".").split()))
 clusters = [[], []]
 
 for point in points:
-  if point[1] + point[0] * (0.5) < 3:
+  if point[0] * (0.5) + point[1] < 3:
     clusters[0].append(point)
   else:
     clusters[1].append(point)
+
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
+  x_c, y_c, m = None, None, 10 ** 9
+  for i in range(len(cluster)):
+    s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
+    for j in range(len(cluster)):
+      s += d(cluster[i], cluster[j])
+    if s < m:
+      m = s
+      x_c, y_c = cluster[i][0], cluster[i][1]
+  return [x_c, y_c]
+
+centroids = [centroid(clstr) for clstr in clusters]
+xs, ys = [x for x, y in centroids], [y for x, y in centroids]
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
-```python 
+```python
 # Расстояние
 from math import dist as d
 
@@ -644,10 +724,25 @@ clusters = [
   [p for p in points if (p[0] * (0.5) + p[1] < 3)],
   [p for p in points if (p[0] * (0.5) + p[1] > 3)]
 ]
+
+def centroid(cluster: list[list[float, float]]) -> list[float, float]:
+  x_c, y_c, m = None, None, 10 ** 9
+  for i in range(len(cluster)):
+    s = 0 # Сумма расстояний от i-той точки до всех остальных в кластере
+    for j in range(len(cluster)):
+      s += d(cluster[i], cluster[j])
+    if s < m:
+      m = s
+      x_c, y_c = cluster[i][0], cluster[i][1]
+  return [x_c, y_c]
+
+centroids = [centroid(clstr) for clstr in clusters]
+xs, ys = [x for x, y in centroids], [y for x, y in centroids]
+print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
 ```python
-clusters = [[...], [...]]
+clusters = [[...],[...]]
 
 def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   x_c, y_c, m = None, None, 10 ** 9
@@ -668,7 +763,7 @@ print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 
 
 ```python 
-clusters = [[...], [...]]
+clusters = [[...],[...]]
 
 def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   c, m = None, 10 ** 9
@@ -685,7 +780,7 @@ print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
 ```python 
-clusters = [[...], [...]]
+clusters = [[...],[...]]
 
 def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   distances = [
@@ -706,7 +801,7 @@ print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
 ```python 
-clusters = [[...], [...]]
+clusters = [[...],[...]]
 
 def centroid(cluster: list[list[float, float]]) -> list[float, float]:
   c = min(cluster, 
@@ -719,7 +814,7 @@ print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 ```
 
 ```python 
-clusters = [[...], [...]]
+clusters = [[...],[...]]
 
 def centroid(cluster):
   c = min(cluster, key=lambda p: sum(d(p, o) for o in cluster))
@@ -743,8 +838,7 @@ clusters = [
 ]
 
 def centroid(cluster):
-  c = min(cluster, key=lambda p: sum(d(p, o) for o in cluster))
-  return c
+  return min(cluster, key=lambda p: sum(d(p, o) for o in cluster))
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]
@@ -756,13 +850,13 @@ print((sum(xs) / len(xs)) * 10_000, (sum(ys) / len(ys)) * 10_000)
 Начнем упрощать этот код. Сначала.
 
 Я бы преобразовал вычисление расстояния в Lambda-функцию [click], но даже это плохая идея.
-В модуле Math это уже сделали. [click]
+В модуле Math это уже сделали. Функция `dist`, элиасим как d чтобы ничего не менять в коде. [click]
 
 Еще у нас есть линейная функция для отнесения точек к кластерам.
 
 Т.к. у всех здесь плохо с математикой, я упрощу линейную функцию за вас. `y = -x + 4 => x + y = 4` [click]
 
-Так лучше, потому что координаты вместе, а они - из Дано. К счастью, прямая проведена так, что она ни с чем не пересекается.
+К счастью, прямая проведена так, что она ни с чем не пересекается.
 
 `clusters` Здесь мы проходимся по точкам и смотрим отношение точки к прямой. В таком нагромождении ничего плохого нет, но предлагаю просто два раза пройтись и использовать  [click] генератор. Точно так же сверну код. [click]
 
@@ -791,7 +885,7 @@ layout: codesplit
 
 ::left::
 
-<PlotlyFigure csvUrl="https://raw.githubusercontent.com/art-bashkirev/2713-pub/refs/heads/main/data-csv/7581_B.csv" xColumn="0" yColumn="1" />
+<PlotlyFigure csvUrl="/7581_B.csv" xColumn="0" yColumn="1" />
 
 <style>
 .plotly-figure {
@@ -915,8 +1009,7 @@ clusters = [
 ]
 
 def centroid(cluster):
-  c = min(cluster, key=lambda p: sum(d(p, o) for o in cluster))
-  return c
+  return min(cluster, key=lambda p: sum(d(p, o) for o in cluster))
 
 centroids = [centroid(clstr) for clstr in clusters]
 xs, ys = [x for x, y in centroids], [y for x, y in centroids]

@@ -17,3 +17,25 @@
     margin-bottom: 1rem;
     line-height: 1.5rem;
 }
+
+#slidev-goto-dialog .autocomplete-list {
+  display: none;
+}
+
+#slidev-goto-dialog:not(.-top-20) .autocomplete-list {
+  display: block;
+}
+
+.katex,
+.katex .mathnormal,
+.katex .mathrm,
+.katex .mathit,
+.katex .mathbf,
+.katex .boldsymbol,
+.katex .mathbb,
+.katex .mathcal,
+.katex .mathfrak,
+.katex .mathsf,
+.katex .mathtt {
+  font-family: "IBM Plex Math", "KaTeX_Main", serif;
+}
