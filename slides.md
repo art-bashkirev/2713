@@ -10,7 +10,7 @@ fonts:
   # mono: IBM Plex Mono
 mdc: true
 layout: full
-remoteAssets: true
+remoteAssets: false
 ---
 
 <!-- THIS IS THE COVER -->

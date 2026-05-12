@@ -51,7 +51,7 @@ layout: codesplit
 
 ::left::
 
-В предыдущей серии... и адаптация под следующую задачу.
+Как вы помните...
 
 <PlotlyFigure csvUrl="/8242_A.csv" xColumn="0" yColumn="1" />
 
