@@ -11,6 +11,7 @@ fonts:
 mdc: true
 layout: full
 remoteAssets: true
+download: true
 ---
 
 <!-- THIS IS THE COVER -->
