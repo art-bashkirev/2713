@@ -58,7 +58,7 @@ layout: codesplit
 <style>
 .plotly-figure {
   margin: 0;
-  align-contents: top;
+  align-content: top;
   width: 350px;
   height: 400px;
 }
