@@ -33,13 +33,13 @@ layout: figuresplit
 
 Файл А
 
-<PlotlyFigure csvUrl="/8078_A.csv" xColumn="0" yColumn="1" />
+<PlotlyFigure csvUrl="/8242_A.csv" xColumn="0" yColumn="1" />
 
 ::right::
 
 Файл Б
 
-<PlotlyFigure csvUrl="/8078_B.csv" xColumn="0" yColumn="1" />
+<PlotlyFigure csvUrl="/8242_B.csv" xColumn="0" yColumn="1" />
 
 ---
 layout: codesplit
@@ -53,7 +53,7 @@ layout: codesplit
 
 В предыдущей серии... и адаптация под следующую задачу.
 
-<PlotlyFigure csvUrl="/8078_A.csv" xColumn="0" yColumn="1" />
+<PlotlyFigure csvUrl="/8242_A.csv" xColumn="0" yColumn="1" />
 
 <style>
 .plotly-figure {
@@ -114,7 +114,7 @@ from itertools import combinations
 from math import dist as d
 
 points = [list(map(float, line.replace(",", ".").split()))
-          for line in open("8078_B.txt")]
+          for line in open("8242_B.txt")]
 
 extra = [
   [20.16999236, 16.84154051],
@@ -160,7 +160,7 @@ from math import dist as d
 
 # Файл A
 points = [list(map(float, line.replace(",", ".").split()))
-          for line in open("8078_A.txt")]
+          for line in open("8242_A.txt")]
 
 clusters = [
   [p for p in points if p[1] < 5],
